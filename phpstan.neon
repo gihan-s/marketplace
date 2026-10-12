@@ -1,0 +1,18 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    level: 8
+    paths:
+        - app
+        - config
+        - database
+        - routes
+
+    ignoreErrors:
+        # Laravel skeleton: env() is typed bool|string, rtrim() wants string.
+        # Stock framework file; revisit if the skeleton changes upstream.
+        -
+            identifier: argument.type
+            path: config/filesystems.php
+            count: 1
